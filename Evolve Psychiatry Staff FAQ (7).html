@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Evolve Psychiatry Staff FAQ</title>
+<style>
+:root {
+  --accent: #2D6A6A;
+  --accent-hover: #1f4d4d;
+  --accent-soft: #E7F0EF;
+  --bg: #FAFAF9;
+  --card: #FFFFFF;
+  --ink: #1C2B33;
+  --muted: #5B6B72;
+  --label: #5B6B72;
+  --line: #DCE3E3;
+  --mark: #E7F0EF;
+  --mark-ink: #2D6A6A;
+  --draft-bg: #FFF3D6;
+  --draft-ink: #7A5300;
+  --on-accent: #FFFFFF;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+.logo { display: block; height: 36px; width: auto; margin-bottom: 16px; }
+h1 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.intro { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+
+.search { position: relative; margin-bottom: 18px; }
+.search svg { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); pointer-events: none; }
+.search input {
+  width: 100%;
+  font: inherit; font-size: 16px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 76px 14px 16px;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.search input::placeholder { color: var(--muted); opacity: .8; }
+.search input:focus { border-color: var(--accent); }
+.search input::-webkit-search-cancel-button { display: none; }
+.clear {
+  position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+  border: 0; background: transparent; color: var(--muted);
+  width: 30px; height: 30px; cursor: pointer; font-size: 20px; line-height: 1; border-radius: 6px;
+  display: none;
+}
+.clear.show { display: block; }
+.clear:hover { color: var(--ink); }
+
+.filter-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; }
+.filter-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-right: 4px; }
+.filter-btn {
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit; font-size: 13px; font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.filter-btn:hover { border-color: var(--accent); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+.status { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; font-size: 13px; color: var(--muted); }
+.reset-btn { font: inherit; font-size: 13px; font-weight: 600; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+.reset-btn:hover { color: var(--accent-hover); }
+
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.sec-head {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  background: none; border: 0; color: inherit; font: inherit; text-align: left;
+  padding: 14px 16px; cursor: pointer;
+}
+.sec-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.sec-count { font-size: 12px; font-weight: 600; color: var(--muted); background: var(--accent-soft); border-radius: 100px; padding: 1px 8px; }
+.sec-head .chev { margin-left: auto; }
+.section.open > .sec-head .chev { transform: rotate(180deg); }
+.rows { display: none; list-style: none; margin: 0; padding: 0; }
+.section.open .rows { display: block; }
+.row { border-top: 1px solid var(--line); transition: background .15s ease; }
+.row.open { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.row.open .q-text { color: var(--ink); font-weight: 700; }
+.row.open .q:hover .q-text { color: var(--ink); }
+.row.open .q .chev { color: var(--accent); }
+.q {
+  width: 100%;
+  display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center;
+  text-align: left;
+  background: none; border: 0; color: inherit; font: inherit;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+.q:hover .q-text { color: var(--accent); }
+.q-text { font-size: 14.5px; font-weight: 600; line-height: 1.4; color: var(--ink); }
+.draft { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 100px; background: var(--draft-bg); color: var(--draft-ink); vertical-align: 1px; }
+.chev { width: 16px; height: 16px; color: var(--muted); transition: transform .2s ease; flex-shrink: 0; }
+.row.open .q .chev { transform: rotate(180deg); }
+.a { display: none; padding: 0 16px 14px; }
+.row.open .a { display: block; }
+.a-body { color: var(--ink); font-size: 14px; }
+.a p { margin: 0 0 10px; max-width: 72ch; }
+.a ul { margin: 0 0 10px; padding-left: 20px; max-width: 72ch; }
+.a li { margin-bottom: 4px; }
+.a a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.a a:hover { color: var(--accent-hover); }
+.a-foot { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+.a-foot b { color: var(--ink); font-weight: 600; }
+.copy { margin-left: auto; font: inherit; font-size: 12.5px; font-weight: 600; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; }
+.copy:hover { color: var(--accent-hover); text-decoration: underline; }
+mark { background: var(--mark); color: var(--mark-ink); padding: 0 2px; border-radius: 3px; }
+.empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 14px; }
+.empty strong { display: block; color: var(--ink); margin-bottom: 4px; }
+
+.help { margin-top: 28px; font-size: 14px; color: var(--muted); text-align: center; }
+.help strong { color: var(--ink); }
+
+@media (max-width: 480px) {
+  .wrap { padding: 20px 14px; }
+  h1 { font-size: 19px; }
+  .q { padding: 12px; }
+  .a { padding: 0 12px 12px; }
+  .filter-label { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .chev, .filter-btn, .search input { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAACPCAYAAABavgYPAAADuklEQVR42u3dP4sdVRjA4fc9M7lLslaSSrGw9A+xTGGhKUQRIVU6W/0GtslnCPgVFAIWVjZWdhYBwcI2QjobtxHC3pnzWrixX5E7e+4+D0w97Dlzf3Nmmzff++xJBVxSVcbN3T4+eOtZnJ7soyotCpfWLAEgQIAAAQgQIEAAAgQIEIAAAQIEIECAAAEIECBAAAIECBCAAAECBAgQgAABAgQgQIAAAQgQIEAAAgQIEMClzdvcNiNM8h1cRmRGXlw2dHxVh5/SvkmAKvoSPc49tSM/rC2q96jeo/duNvzIr5LMiogbF9dxByjbHLXsv5lq+rq38gk47EMb0S5OQeIz/MmnZ+YX0zR9ua7rsZ+AMlrm819+ePDU1o/v5++twTF4+PDhx/N8+BxscgKpjMmWw5X6DNvkN+kTCNiMAAECBAgQgAABAgQgQIAAAQgQIEAAAgQIEIAAAQIEIECAAAEIECBAgAABCBAgQAACBAgQwJEEqCpWSw9XR1Vt8ps8/CjEWiMjPrrz6ZNdpdHMw+oRt07W+PDt3+N0t49uRQbfzXi/98Pv4sEDVNUjW7ubOd217wO/MVtGm/YxzVNMN3o08+HHLlDvcS0C9DJCUd6ZYx/ZM3rfx7IssUxLlADxH/gEAgQIECAAAQIECECAAAECECBAgAAECBAgAAECBAhAgAABAhAgQIAAAQIQIECAAAQIECAAAQIECECAgIHN29w2I7NFpGmaw6qMbBXTNMU0dZNRR97Kqn+vaxCgjIx+VtWfV481PLeDPrQtel9iXXqs8xJVDtMDB+hmZr4ZEbujD1C2KaY5v3vljdtf/fnb873tH1NGxIvziPV8F7de3VmQgZ2dnd2e5/nxPM/313U9/hPQ8mL946fH985s/fh+/dEaHIG/Hj169DQz7x/6xtucm5t//sAV067NTQEECBAgQIAABAgQIAABAgQIQIAAAQIQIECAAAQIECAAAQIECECAAAECBAhAgAABAhAgQIAAjihAWbFaerg6MnOT3+QGk1ErKuu1dz/59s48NQMKB7WPiNNdxL13nsXpzoTtwfV1XV+vquMPUPUlouLzNrUH9c+IcQY0VYuo8+jrGlVLVPmaH1VVVWaeHHou/EYnoIjItsvMna0f+anNaG2K1jIyW3iXDP359TJE1yRAUREb/LH8vwGq6lFVF5cl4fKcmwEBAgQIQIAAAQIQIECAAAQIECAAAQIECECAAAECECBAgAAECBAgQIAABAgQIAABAgQIQIAAAQIQIECAAC7vb2Wn69LqW6uxAAAAAElFTkSuQmCC" alt="Evolve Psychiatry logo">
+  <h1>Staff FAQ</h1>
+  <p class="intro">Answers to common questions about policies, time off, IT, and day-to-day work at Evolve Psychiatry.</p>
+
+  <div class="search" role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Search questions, e.g. call out, PTO, VPN, payday" aria-label="Search questions" autocomplete="off">
+    <button class="clear" id="clear" aria-label="Clear search">×</button>
+  </div>
+
+  <div class="status" aria-live="polite">
+    <span id="count"></span>
+    <button class="reset-btn" id="reset" hidden>Clear search</button>
+  </div>
+
+  <ul class="list" id="list"></ul>
+
+  <p class="help"><strong>Didn't find your answer?</strong> Ask the Practice Manager. For computer, account, or network issues, contact IT.</p>
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   FAQ DATA
+   roles:    "All Staff" shows for everyone. Others: Provider, Therapist,
+             Reception, TMS/Spravato, Billing, Admin, Remote
+   category: one topic per question
+   draft:    true = placeholder, needs Evolve's actual process
+---------------------------------------------------------------- */
+const FAQ = [
+  // ---------- Time Off & Attendance ----------
+  { id: "pto-request", category: "Time Off & Attendance", roles: ["All Staff", "Provider"],
+    q: "How do I request PTO, and how far in advance?",
+    a: "<p>Submit all PTO requests through your <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> for approval, as early as you can.</p><ul><li><strong>Staff:</strong> at least 2 weeks in advance. If your department's schedule is posted monthly (reception, TMS, and others), request it before the schedule comes out.</li><li><strong>Providers:</strong> at least 30 days in advance, and there can't already be more than 4 patients on your schedule for that day.</li></ul>",
+    keywords: "vacation day off time off request advance notice paychex provider 30 days patients booked schedule", source: "Handbook §4.1, §4.7, §7.6" },
+  { id: "pto-start", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "When can I start using PTO and sick time?",
+    a: "<p>After your 90-day introductory period. Sick leave starts accruing on your first day, but you can't use it until the 90 days are up.</p>",
+    keywords: "new hire probation introductory period 90 days eligible", source: "Handbook §3.7, §7.6, §7.7" },
+  { id: "call-out", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "How do I call out sick or let my manager know I'll be late?",
+    a: "<p>Call the Evolve Psychiatry Call-Out and Emergency Line at <strong>631-479-3406</strong> at least 2 hours before your scheduled start time. If no one answers, leave a voicemail. Texts, Slack messages, and emails don't count as notice.</p><p>For any last-minute absence, you also need to complete an <a href=\"https://form.jotform.com/241064635802048\" target=\"_blank\" rel=\"noopener\">Absence Form</a>. Let them know how long you expect to be out and when you'll be back.</p>",
+    keywords: "sick late callout call out absent notify text slack email tardy phone number emergency line voicemail absence form", source: "Handbook §4.1" },
+  { id: "high-impact", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "What are high-impact days?",
+    a: "<p>Mondays and the day after a holiday. PTO for these days must be requested in advance, and call-outs aren't accepted. Your manager may ask you to come in unless it's a real emergency, and you'll need documentation of that emergency before returning.</p>",
+    keywords: "monday holiday call out callout", source: "Handbook §4.1" },
+  { id: "write-ups", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "How many call-outs or late arrivals lead to a write-up?",
+    a: "<ul><li>3 call-outs in a 6-month period: the third triggers an automatic write-up.</li><li>3 late arrivals in a 3-month period: the third triggers an automatic write-up.</li><li>3 consecutive sick days: you'll need a doctor's note.</li></ul>",
+    keywords: "writeup discipline late tardy callout doctors note absence", source: "Handbook §4.1" },
+  { id: "arrive-early", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "How early should I arrive for my shift?",
+    a: "<p>5 to 10 minutes before your scheduled start, ready to work.</p>",
+    keywords: "arrive shift start on time punctual", source: "Handbook §4.1" },
+  { id: "schedule-posted", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "When is my schedule posted, and where can I see it?",
+    a: "<p>Reception, TMS, and other department schedules are posted once a month, covering the whole month. You can view the schedule anytime on the Evolve Office website or <a href=\"https://docs.google.com/spreadsheets/d/11HihFUnBQyIgwfn8pCv-dmP78lZeOlWWOhF5GuPL3Es/edit?usp=sharing\" target=\"_blank\" rel=\"noopener\">open the schedule here</a>. Get your PTO and sick requests in before it's posted.</p><p>Provider, billing, administration, and NPC schedules are set before your start date and only change if administration directs it.</p>",
+    keywords: "schedule monthly shifts posted where view website", source: "Handbook §4.7" },
+  { id: "short-staffed", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "Why was my PTO request limited during a busy period?",
+    a: "<p>During short-staffing periods, Administration may approve PTO for only one staff member per location at a time, first come, first served.</p>",
+    keywords: "denied pto short staffed busy one per location", source: "Handbook §4.1" },
+  { id: "pto-carryover", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "Can I carry unused PTO into next year?",
+    a: "<p>You can carry over half of your unused PTO. Alternatively, half of your unused PTO may be paid out at year end instead of carried over.</p>",
+    keywords: "rollover roll over unused payout year end", source: "Handbook §7.6" },
+  { id: "holidays", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "What are the paid holidays?",
+    a: "<p>New Year's Day, Memorial Day, July 4th, Labor Day, Thanksgiving, Christmas Day, plus one floating holiday.</p><p>If you work four 10-hour days, you're paid 10 hours when a holiday lands on a normal workday. If it lands on your day off, ask your manager how it applies to you.</p>",
+    keywords: "holiday christmas thanksgiving july 4 new years labor memorial", source: "Handbook §7.5" },
+  { id: "floating-holiday", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "How does the floating holiday work?",
+    a: "<p>You get one paid floating holiday a year to use on a day of your choosing, such as Christmas Eve, New Year's Eve, Juneteenth, MLK Day, or Columbus Day. Give 2 weeks' notice before taking it.</p>",
+    keywords: "floating holiday juneteenth christmas eve mlk", source: "Handbook §7.5" },
+  { id: "leaving-pto", category: "Time Off & Attendance", roles: ["All Staff"],
+    q: "What happens to my PTO and sick time if I leave?",
+    a: "<p>Unused PTO and sick time aren't paid out when you resign or are terminated. You also can't use PTO or sick time during your last 2 weeks.</p>",
+    keywords: "resign quit two weeks notice payout termination", source: "Handbook §5.7, §7.6, §7.7" },
+
+  // ---------- Pay & Benefits ----------
+  { id: "payday", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "When is payday?",
+    a: "<p>Every other Thursday. If payday falls on a holiday, you're paid the workday before. If you're not sure when the next payday is, check the front page of the Evolve Office website.</p>",
+    keywords: "paycheck pay date biweekly direct deposit", source: "Handbook, NY & NC Pay Period" },
+  { id: "clock-in", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "Who has to clock in, and how?",
+    a: "<p>All nonexempt employees, hourly or salaried, clock in and out using their <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> on their assigned office computer. Exempt employees and independent contractors don't clock in.</p><p>Clock in no more than 5 minutes before you start working and out no more than 5 minutes after you stop. Record your meal break too. Any time you actually work is recorded and paid, including work outside those 5-minute windows or during a meal break.</p><p>Never clock in or out for another employee; doing so leads to termination.</p>",
+    keywords: "paychex timeclock punch time card clock in out hours exempt nonexempt salaried contractor", source: "Handbook §4.8" },
+  { id: "overtime", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "Can I work overtime?",
+    a: "<p>Only with written approval from your manager in advance. In New York offices, no more than 2 hours of overtime per pay period is approved unless there's an extenuating circumstance. The practice may also require overtime at times, with as much notice as possible.</p>",
+    keywords: "overtime ot extra hours approval", source: "Handbook, Overtime" },
+  { id: "lunch", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "Is my lunch break paid?",
+    a: "<p>In New York offices, full-time employees get a paid 30-minute lunch. Clock out and back in for it, and tell your manager if you can't take it.</p>",
+    keywords: "lunch meal break paid 30 minutes", source: "Handbook, NY Meal Periods" },
+  { id: "mileage", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "Do I get reimbursed for driving to another office?",
+    a: "<p>Yes, at $0.74 per mile when you're asked to cover at another location. Mileage to required in-person staff meetings isn't reimbursed.</p>",
+    keywords: "mileage gas travel reimbursement coverage", source: "Handbook §4.2" },
+  { id: "401k", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "When can I join the 401(k)?",
+    a: "<p>After 1 full year of employment. Employees who contribute a certain percentage may be eligible for a practice match. See the Summary Plan Description for details.</p>",
+    keywords: "401k retirement match", source: "Handbook §7.2" },
+  { id: "health", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "When does health insurance start?",
+    a: "<p>After the plan's waiting period, which follows your 90-day introductory period. Ask the Practice Manager for the Summary Plan Description.</p>",
+    keywords: "health insurance medical benefits coverage", source: "Handbook §3.7, §7.4" },
+  { id: "personal-info", category: "Pay & Benefits", roles: ["All Staff"],
+    q: "How do I update my address or tax withholding?",
+    a: "<p>Contact the Practice Manager. Keeping this current makes sure your W-2 and other mail reach you.</p>",
+    keywords: "address phone w4 w-4 tax withholding change", source: "Handbook §6.7" },
+
+  // ---------- Leave ----------
+  { id: "sick-leave", category: "Leave", roles: ["All Staff"],
+    q: "How does sick leave work?",
+    a: "<ul><li>You earn 1 hour for every 30 hours worked, starting day one.</li><li>You can use it after 90 days, up to 40 hours per calendar year, in 1-hour minimums.</li><li>It covers your own or a family member's illness, care, or preventive care, and safe leave situations.</li><li>Unused hours carry over, but the 40-hour yearly use limit still applies.</li></ul>",
+    keywords: "sick time accrual family member doctor", source: "Handbook §7.7" },
+  { id: "jury-duty", category: "Leave", roles: ["All Staff"],
+    q: "Am I paid for jury duty?",
+    a: "<p>Evolve pays $72 per day for the first 3 days. Tell your manager as soon as you're summoned, and you may be asked for proof of service.</p>",
+    keywords: "jury summons court", source: "Handbook §7.1" },
+  { id: "pfl", category: "Leave", roles: ["All Staff"],
+    q: "What is New York Paid Family Leave?",
+    a: "<p>For New York staff: up to 12 weeks of job-protected leave at 67% of your weekly pay (capped) to bond with a new child, care for a family member with a serious health condition, or help with a family member's military deployment.</p><p>Full-time employees are eligible after 26 consecutive weeks; part-time after 175 days worked.</p>",
+    keywords: "pfl paid family leave baby bonding maternity paternity", source: "Handbook, NY Paid Family Leave" },
+  { id: "fmla", category: "Leave", roles: ["All Staff"],
+    q: "Am I eligible for FMLA?",
+    a: "<p>If you've worked here at least 12 months and at least 1,250 hours in the last 12 months. FMLA is unpaid, job-protected leave of up to 12 weeks, and you can use PTO or sick time during it.</p><p>Give 30 days' notice when you can. Get leave forms from the Practice Manager.</p>",
+    keywords: "fmla medical leave family unpaid", source: "Handbook §7.3" },
+
+  // ---------- IT & Accounts ----------
+  { id: "personal-wifi", category: "IT & Accounts", roles: ["All Staff"],
+    q: "Can I connect my phone or laptop to the office Wi-Fi?",
+    a: "<p>No. Personal devices can't connect to the practice network or to practice equipment like computers and printers.</p>",
+    keywords: "wifi wi-fi internet network phone personal device printer", source: "Handbook §6.6" },
+  { id: "shared-login", category: "IT & Accounts", roles: ["All Staff"],
+    q: "Can a coworker use my login if I say it's okay?",
+    a: "<p>No. Nobody may log into another employee's computer, email, EMR, Paychex, or any other account, even with permission. Don't share passwords. Using someone else's EMR login can also be a HIPAA violation.</p>",
+    keywords: "password login share account credentials emr", source: "Handbook §6.1" },
+  { id: "imessage", category: "IT & Accounts", roles: ["All Staff"],
+    q: "Can I use iMessage or FaceTime on my office Mac?",
+    a: "<p>No. iMessage and FaceTime aren't permitted on practice computers.</p>",
+    keywords: "imessage facetime mac apple messages", source: "Handbook §6.6" },
+  { id: "remote-access", category: "IT & Accounts", roles: ["All Staff"],
+    q: "Why are Splashtop and Rippling on my computer?",
+    a: "<p>They let IT and authorized support providers maintain, update, troubleshoot, and secure practice computers, including remotely and without prior notice. Practice devices and accounts may be monitored, so there's no expectation of privacy on them.</p>",
+    keywords: "splashtop rippling remote access monitoring privacy", source: "Handbook §6.1" },
+  { id: "software", category: "IT & Accounts", roles: ["All Staff"],
+    q: "How do I get new software installed?",
+    a: "<p>Get your manager's approval first. All software is purchased through IT.</p>",
+    keywords: "install app program software purchase license", source: "Handbook §6.1" },
+
+  // ---------- Remote ----------
+  { id: "vpn", category: "IT & Accounts", roles: ["Remote"],
+    q: "Do I need to use a VPN?",
+    a: "<p>Yes, if you're a full-time remote worker.</p>",
+    keywords: "vpn remote home work from home", source: "Handbook, HIPAA Remote Work" },
+  { id: "telehealth-setup", category: "HIPAA & Compliance", roles: ["Remote", "Provider", "Therapist"],
+    q: "What do I need for telehealth sessions from home?",
+    a: "<ul><li>A private, enclosed room</li><li>Headphones during patient encounters</li><li>A screen nobody else can see</li><li>Practice-approved, encrypted devices and platforms only</li><li>No patient information stored on personal devices unless authorized</li></ul>",
+    keywords: "telehealth remote home video visit headphones private room", source: "Handbook, HIPAA Remote Work" },
+
+  // ---------- HIPAA & Compliance ----------
+  { id: "own-chart", category: "HIPAA & Compliance", roles: ["All Staff"],
+    q: "Can I look up my own or a family member's chart?",
+    a: "<p>No. Only access patient information you need for your job. That rules out your own record, family members' records, and anyone else's without a business reason.</p>",
+    keywords: "chart record emr look up family minimum necessary", source: "Handbook, HIPAA" },
+  { id: "employee-patient", category: "HIPAA & Compliance", roles: ["All Staff"],
+    q: "Can I be seen as a patient at Evolve?",
+    a: "<p>Generally no. You may choose medication management or TMS at Evolve, but charts can't be locked in our EMR, so other employees may be able to see yours. Talk therapy and Spravato aren't available to current employees.</p>",
+    keywords: "employee patient treatment chart privacy", source: "Handbook, HIPAA" },
+  { id: "breach", category: "HIPAA & Compliance", roles: ["All Staff"],
+    q: "What do I do if I lose a device or think patient info was exposed?",
+    a: "<p>Report it to the Practice Manager right away. This covers lost or stolen devices, suspected breaches, and unauthorized access.</p>",
+    keywords: "lost stolen phone laptop breach privacy report hipaa", source: "Handbook, HIPAA" },
+
+  // ---------- Patient Safety & Incidents ----------
+  { id: "report-now", category: "Patient Safety & Incidents", roles: ["All Staff"],
+    q: "What do I need to report to management right away?",
+    a: "<ul><li>Patient complaints about safety or quality of care</li><li>Adverse events</li><li>Medication errors</li><li>HIPAA concerns</li><li>Regulatory inquiries</li></ul><p>Don't try to resolve a serious complaint on your own.</p>",
+    keywords: "complaint incident error adverse event report", source: "Handbook, Incident Reporting" },
+  { id: "threats", category: "Patient Safety & Incidents", roles: ["All Staff"],
+    q: "A patient or visitor is threatening or escalating. What do I do?",
+    a: "<p>Report it immediately, follow de-escalation and emergency procedures, and use panic or emergency protocols when needed. You won't be disciplined for reporting a safety concern in good faith.</p>",
+    keywords: "threat violence aggressive escalation panic emergency", source: "Handbook §8.3, Workplace Violence" },
+  { id: "boundaries", category: "Patient Safety & Incidents", roles: ["All Staff"],
+    q: "Can I accept a gift from a patient or follow them on social media?",
+    a: "<p>No significant gifts, no social media interaction with current patients, and no personal relationships with current patients.</p>",
+    keywords: "gift social media instagram facebook boundaries patient", source: "Handbook, Professional Boundaries" },
+
+  // ---------- Office & Conduct ----------
+  { id: "dress-code", category: "Office & Conduct", roles: ["Reception", "TMS/Spravato"],
+    q: "What's the dress code for reception and TMS?",
+    a: "<p>Black scrubs with closed-toe shoes. Black leggings, hoodies, and clothing with holes aren't allowed. Blue jeans are fine on casual Fridays.</p>",
+    keywords: "dress code scrubs uniform clothes jeans casual friday", source: "Handbook §6.5" },
+  { id: "phones", category: "Office & Conduct", roles: ["All Staff"],
+    q: "Can I use my personal phone at work?",
+    a: "<p>Only on breaks and lunch, or for something urgent. You can use the office phone for necessary personal calls. Excessive personal phone use leads to a write-up.</p>",
+    keywords: "cell phone mobile personal break", source: "Handbook §6.6" },
+  { id: "closures", category: "Office & Conduct", roles: ["All Staff"],
+    q: "How will I find out if the office is closed for weather?",
+    a: "<p>By Slack and email. Make sure at least one of them is on your phone.</p>",
+    keywords: "snow weather closed closure storm power outage", source: "Handbook §8.1" },
+
+  // ---------- RX (drafts) ----------
+  { id: "rx-send", category: "RX", roles: ["Provider"], draft: true,
+    q: "How do I send a prescription to a patient's pharmacy?",
+    a: "<p>Placeholder: add Evolve's e-prescribing steps in the EMR, including how controlled substances are handled.</p>",
+    keywords: "prescription erx e-prescribe pharmacy send medication epcs controlled", source: "" },
+  { id: "rx-refill", category: "RX", roles: ["Reception"], draft: true,
+    q: "A pharmacy is calling about a refill. What do I do?",
+    a: "<p>Placeholder: add how reception routes refill requests to the right provider.</p>",
+    keywords: "refill pharmacy call medication rx", source: "" },
+  { id: "rx-pa", category: "RX", roles: ["Provider", "Billing"], draft: true,
+    q: "Who handles prior authorizations?",
+    a: "<p>Placeholder: add who submits prior auths and how status is tracked.</p>",
+    keywords: "prior auth authorization pa insurance medication", source: "" },
+
+  // ---------- Scheduling (drafts) ----------
+  { id: "sched-noshow", category: "Scheduling", roles: ["Reception"], draft: true,
+    q: "What do I do when a patient no-shows?",
+    a: "<p>Placeholder: add Evolve's no-show process and any fee policy.</p>",
+    keywords: "no show missed appointment reschedule", source: "" }
+];
+
+const ROLES = ["Provider", "Therapist", "Reception", "TMS/Spravato", "Billing", "Admin", "Remote"];
+
+const state = { query: "", roles: new Set() };
+const $ = s => document.querySelector(s);
+
+function esc(s) { return s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function stripTags(html) { const d = document.createElement("div"); d.innerHTML = html; return d.textContent; }
+function terms() { return state.query.toLowerCase().split(/\s+/).filter(Boolean); }
+function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+// Highlight only inside text nodes so HTML tags stay intact
+function highlightHTML(html, words) {
+  if (!words.length) return html;
+  const re = new RegExp("(" + words.map(reEsc).join("|") + ")", "gi");
+  return html.split(/(<[^>]+>)/).map(part => part.startsWith("<") ? part : part.replace(re, "<mark>$1</mark>")).join("");
+}
+
+function matchesRole(item) {
+  if (!state.roles.size) return true;
+  return item.roles.includes("All Staff") || item.roles.some(r => state.roles.has(r));
+}
+function matchesQuery(item, words) {
+  if (!words.length) return true;
+  const hay = (item.q + " " + stripTags(item.a) + " " + item.keywords + " " + item.category + " " + item.roles.join(" ")).toLowerCase();
+  return words.every(w => hay.includes(w));
+}
+function filtered() {
+  const words = terms();
+  return FAQ.filter(i => matchesRole(i) && matchesQuery(i, words));
+}
+
+function renderFilters() {
+  const roles = $("#roles"); roles.innerHTML = "";
+  const mk = (label, active, onClick) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "filter-btn" + (active ? " active" : "");
+    b.setAttribute("aria-pressed", active ? "true" : "false");
+    b.textContent = label;
+    b.addEventListener("click", onClick);
+    roles.append(b);
+  };
+  mk("All", state.roles.size === 0, () => { state.roles.clear(); render(); });
+  ROLES.forEach(r => mk(r, state.roles.has(r), () => { state.roles.has(r) ? state.roles.delete(r) : state.roles.add(r); render(); }));
+}
+
+const CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+const SECTION_ORDER = ["Time Off & Attendance", "Pay & Benefits", "Leave", "IT & Accounts", "HIPAA & Compliance", "Patient Safety & Incidents", "Office & Conduct", "RX", "Scheduling"];
+const openSections = new Set();
+const openItems = new Set();
+let lastSig = null;
+
+function renderList() {
+  const list = $("#list"); list.innerHTML = "";
+  const items = filtered();
+  const words = terms();
+  const filtering = !!(state.query || state.roles.size);
+
+  // When the search or role changes, open the sections (and few results) that match
+  const sig = state.query + "|" + [...state.roles].sort().join(",");
+  if (sig !== lastSig) {
+    lastSig = sig;
+    openSections.clear();
+    if (filtering) items.forEach(i => openSections.add(i.category));
+    if (words.length && items.length <= 3) items.forEach(i => openItems.add(i.id));
+  }
+
+  const scope = state.roles.size ? ` for ${[...state.roles].join(", ")}` : "";
+  $("#count").textContent = `Showing ${items.length} ${items.length === 1 ? "question" : "questions"}${scope}`;
+  $("#reset").hidden = !filtering;
+
+  if (!items.length) {
+    list.innerHTML = `<li class="empty"><strong>No questions match${state.query ? ` “${esc(state.query)}”` : ""}.</strong>Try fewer words, or reset the filters to search everything.</li>`;
+    return;
+  }
+
+  const cats = [...SECTION_ORDER, ...new Set(items.map(i => i.category).filter(c => !SECTION_ORDER.includes(c)))];
+  cats.forEach(cat => {
+    const group = items.filter(i => i.category === cat);
+    if (!group.length) return;
+    const sec = document.createElement("li");
+    sec.className = "section" + (openSections.has(cat) ? " open" : "");
+    const secId = "sec-" + cat.toLowerCase().replace(/[^a-z]+/g, "-");
+    sec.innerHTML = `
+      <button class="sec-head" type="button" aria-expanded="${openSections.has(cat)}" aria-controls="${secId}">
+        <span class="sec-title">${esc(cat)}</span><span class="sec-count">${group.length}</span>${CHEV}
+      </button>
+      <ul class="rows" id="${secId}"></ul>`;
+    sec.querySelector(".sec-head").addEventListener("click", () => {
+      openSections.has(cat) ? openSections.delete(cat) : openSections.add(cat);
+      renderList();
+    });
+    const rows = sec.querySelector(".rows");
+
+    group.forEach(i => {
+      const li = document.createElement("li");
+      const isOpen = openItems.has(i.id);
+      li.className = "row" + (isOpen ? " open" : ""); li.id = i.id;
+      li.innerHTML = `
+        <button class="q" type="button" aria-expanded="${isOpen}" aria-controls="a-${i.id}">
+          <span class="q-text">${highlightHTML(esc(i.q), words)}${i.draft ? '<span class="draft">Draft</span>' : ""}</span>
+          ${CHEV}
+        </button>
+        <div class="a" id="a-${i.id}" role="region">
+          <div class="a-body">
+            ${highlightHTML(i.a, words)}
+            <div class="a-foot">
+              <span><b>Role:</b> ${esc(i.roles.join(", "))}</span>
+              ${i.source ? `<span>Source: ${esc(i.source)}</span>` : ""}
+              <button class="copy" type="button">Copy link to question</button>
+            </div>
+          </div>
+        </div>`;
+      li.querySelector(".q").addEventListener("click", e => {
+        const nowOpen = li.classList.toggle("open");
+        nowOpen ? openItems.add(i.id) : openItems.delete(i.id);
+        e.currentTarget.setAttribute("aria-expanded", nowOpen);
+      });
+      li.querySelector(".copy").addEventListener("click", e => {
+        const url = location.href.split("#")[0] + "#" + i.id;
+        const btn = e.currentTarget;
+        const done = () => { btn.textContent = "Link copied"; setTimeout(() => btn.textContent = "Copy link to question", 1600); };
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+        else prompt("Copy this link:", url);
+      });
+      rows.append(li);
+    });
+    list.append(sec);
+  });
+}
+
+function render() { renderList(); }
+
+let t;
+$("#q").addEventListener("input", e => {
+  clearTimeout(t);
+  $("#clear").classList.toggle("show", !!e.target.value);
+  t = setTimeout(() => { state.query = e.target.value.trim(); renderList(); }, 120);
+});
+$("#clear").addEventListener("click", () => { $("#q").value = ""; state.query = ""; $("#clear").classList.remove("show"); $("#q").focus(); render(); });
+$("#reset").addEventListener("click", () => {
+  $("#q").value = ""; $("#clear").classList.remove("show");
+  state.query = ""; state.roles.clear(); render();
+});
+
+const linked = FAQ.find(i => "#" + i.id === location.hash);
+render();
+if (linked) { openSections.add(linked.category); openItems.add(linked.id); renderList(); }
+if (location.hash) {
+  const el = document.getElementById(location.hash.slice(1));
+  if (el) el.scrollIntoView({ block: "center" });
+}
+</script>
+</body>
+</html>
