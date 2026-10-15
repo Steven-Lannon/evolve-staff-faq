@@ -87,7 +87,11 @@ h1 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: var(--ink); lett
 .reset-btn { font: inherit; font-size: 13px; font-weight: 600; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
 .reset-btn:hover { color: var(--accent-hover); }
 
-.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.umbrella { margin: 0 0 32px; }
+.umbrella-title { margin: 18px 0 16px; padding-bottom: 10px; font-size: 26px; font-weight: 700; color: #3A3E43; letter-spacing: -0.02em; border-bottom: 4px solid var(--accent); }
+.sections { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.umbrella-empty { background: var(--card); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 16px; color: var(--muted); font-size: 14px; }
 .section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .sec-head {
   width: 100%; display: flex; align-items: center; gap: 10px;
@@ -133,10 +137,27 @@ h1 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: var(--ink); lett
 .a li { margin-bottom: 4px; }
 .a a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 .a a:hover { color: var(--accent-hover); }
+.a a.guide-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #FFFFFF;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  padding: 9px 18px; border-radius: 8px;
+  transition: background .15s ease;
+}
+.a a.guide-btn::after { content: "↗"; font-size: 15px; line-height: 1; }
+.a a.guide-btn:hover { background: var(--accent-hover); color: #FFFFFF; }
 .a-foot { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
 .a-foot b { color: var(--ink); font-weight: 600; }
-.copy { margin-left: auto; font: inherit; font-size: 12.5px; font-weight: 600; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; }
-.copy:hover { color: var(--accent-hover); text-decoration: underline; }
+.copy {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 12.5px; font-weight: 600;
+  background: var(--card); color: var(--accent);
+  border: 1.5px solid var(--accent); border-radius: 100px;
+  padding: 5px 13px; cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.copy svg { width: 14px; height: 14px; }
+.copy:hover, .copy.done { background: var(--accent); color: #FFFFFF; }
 mark { background: var(--mark); color: var(--mark-ink); padding: 0 2px; border-radius: 3px; }
 .empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 14px; }
 .empty strong { display: block; color: var(--ink); margin-bottom: 4px; }
@@ -167,9 +188,14 @@ mark { background: var(--mark); color: var(--mark-ink); padding: 0 2px; border-r
     <button class="clear" id="clear" aria-label="Clear search">×</button>
   </div>
 
+  <div class="filter-bar" role="group" aria-labelledby="lbl-show">
+    <span class="filter-label" id="lbl-show">Show Only:</span>
+    <span id="groups" style="display:contents"></span>
+  </div>
+
   <div class="status" aria-live="polite">
     <span id="count"></span>
-    <button class="reset-btn" id="reset" hidden>Clear search</button>
+    <button class="reset-btn" id="reset" hidden>Reset filters</button>
   </div>
 
   <ul class="list" id="list"></ul>
@@ -183,6 +209,7 @@ mark { background: var(--mark); color: var(--mark-ink); padding: 0 2px; border-r
    roles:    "All Staff" shows for everyone. Others: Provider, Therapist,
              Reception, TMS/Spravato, Billing, Admin, Remote
    category: one topic per question
+   group:    "General" (default if left out) or "ECW"
    draft:    true = placeholder, needs Evolve's actual process
 ---------------------------------------------------------------- */
 const FAQ = [
@@ -362,25 +389,12 @@ const FAQ = [
     a: "<p>By Slack and email. Make sure at least one of them is on your phone.</p>",
     keywords: "snow weather closed closure storm power outage", source: "Handbook §8.1" },
 
-  // ---------- RX (drafts) ----------
-  { id: "rx-send", category: "RX", roles: ["Provider"], draft: true,
-    q: "How do I send a prescription to a patient's pharmacy?",
-    a: "<p>Placeholder: add Evolve's e-prescribing steps in the EMR, including how controlled substances are handled.</p>",
-    keywords: "prescription erx e-prescribe pharmacy send medication epcs controlled", source: "" },
-  { id: "rx-refill", category: "RX", roles: ["Reception"], draft: true,
-    q: "A pharmacy is calling about a refill. What do I do?",
-    a: "<p>Placeholder: add how reception routes refill requests to the right provider.</p>",
-    keywords: "refill pharmacy call medication rx", source: "" },
-  { id: "rx-pa", category: "RX", roles: ["Provider", "Billing"], draft: true,
-    q: "Who handles prior authorizations?",
-    a: "<p>Placeholder: add who submits prior auths and how status is tracked.</p>",
-    keywords: "prior auth authorization pa insurance medication", source: "" },
+  // ================= ECW =================
+  { id: "ecw-assign-note", group: "ECW", category: "Progress Notes", roles: ["Provider"],
+    q: "How do I lock or assign a progress note?",
+    a: "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/Assign_Note_To_Supervising_Provider__4e-7HmgQQEuahyDFggMhwA\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+    keywords: "ecw eclinicalworks progress note lock sign assign supervising provider cosign co-sign scribe guide", source: "" },
 
-  // ---------- Scheduling (drafts) ----------
-  { id: "sched-noshow", category: "Scheduling", roles: ["Reception"], draft: true,
-    q: "What do I do when a patient no-shows?",
-    a: "<p>Placeholder: add Evolve's no-show process and any fee policy.</p>",
-    keywords: "no show missed appointment reschedule", source: "" }
 ];
 
 const ROLES = ["Provider", "Therapist", "Reception", "TMS/Spravato", "Billing", "Admin", "Remote"];
@@ -409,25 +423,33 @@ function matchesQuery(item, words) {
   const hay = (item.q + " " + stripTags(item.a) + " " + item.keywords + " " + item.category + " " + item.roles.join(" ")).toLowerCase();
   return words.every(w => hay.includes(w));
 }
+const GROUPS = ["General", "ECW"];
+state.groups = new Set();
+const groupOf = i => i.group || "General";
+function allGroups() { return state.groups.size === 0; }
+
 function filtered() {
   const words = terms();
-  return FAQ.filter(i => matchesRole(i) && matchesQuery(i, words));
+  return FAQ.filter(i => (allGroups() || state.groups.has(groupOf(i))) && matchesRole(i) && matchesQuery(i, words));
 }
 
 function renderFilters() {
-  const roles = $("#roles"); roles.innerHTML = "";
-  const mk = (label, active, onClick) => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "filter-btn" + (active ? " active" : "");
-    b.setAttribute("aria-pressed", active ? "true" : "false");
-    b.textContent = label;
-    b.addEventListener("click", onClick);
-    roles.append(b);
-  };
-  mk("All", state.roles.size === 0, () => { state.roles.clear(); render(); });
-  ROLES.forEach(r => mk(r, state.roles.has(r), () => { state.roles.has(r) ? state.roles.delete(r) : state.roles.add(r); render(); }));
+  const box = $("#groups"); box.innerHTML = "";
+  GROUPS.forEach(g => {
+    const active = state.groups.has(g);
+    const btn = document.createElement("button");
+    btn.type = "button"; btn.className = "filter-btn" + (active ? " active" : "");
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+    btn.textContent = g;
+    btn.addEventListener("click", () => {
+      state.groups = active ? new Set() : new Set([g]);       // select only this one; click again to show all
+      render();
+    });
+    box.append(btn);
+  });
 }
 
+const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1 1"/><path d="M14 10a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1-1"/></svg>';
 const CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 const SEC_ICONS = (() => {
   const w = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
@@ -441,6 +463,7 @@ const SEC_ICONS = (() => {
     "Office & Conduct": w('<path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M2 21h20M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/>'),
     "RX": w('<rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="M9.5 9.5l5 5"/>'),
     "Scheduling": w('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+    "Progress Notes": w('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>'),
     _: w('<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/>')
   };
 })();
@@ -453,83 +476,107 @@ function renderList() {
   const list = $("#list"); list.innerHTML = "";
   const items = filtered();
   const words = terms();
-  const filtering = !!(state.query || state.roles.size);
+  const filtering = !!state.query;
 
-  // When the search or role changes, open the sections (and few results) that match
-  const sig = state.query + "|" + [...state.roles].sort().join(",");
+  const sig = state.query + "|" + [...state.groups].join(",");
   if (sig !== lastSig) {
     lastSig = sig;
     openSections.clear();
-    if (filtering) items.forEach(i => openSections.add(i.category));
+    if (filtering) items.forEach(i => openSections.add(groupOf(i) + "::" + i.category));
     if (words.length && items.length <= 3) items.forEach(i => openItems.add(i.id));
   }
 
-  const scope = state.roles.size ? ` for ${[...state.roles].join(", ")}` : "";
-  $("#count").textContent = `Showing ${items.length} ${items.length === 1 ? "question" : "questions"}${scope}`;
-  $("#reset").hidden = !filtering;
+  $("#count").textContent = `Showing ${items.length} ${items.length === 1 ? "question" : "questions"}`;
+  $("#reset").hidden = !(state.query || !allGroups());
 
-  if (!items.length) {
-    list.innerHTML = `<li class="empty"><strong>No questions match${state.query ? ` “${esc(state.query)}”` : ""}.</strong>Try fewer words, or reset the filters to search everything.</li>`;
-    return;
-  }
+  let rendered = 0;
+  GROUPS.filter(g => allGroups() || state.groups.has(g)).forEach(g => {
+    const gItems = items.filter(i => groupOf(i) === g);
+    if (!gItems.length && state.query) return;
 
-  const cats = [...SECTION_ORDER, ...new Set(items.map(i => i.category).filter(c => !SECTION_ORDER.includes(c)))];
-  cats.forEach(cat => {
-    const group = items.filter(i => i.category === cat);
-    if (!group.length) return;
-    const sec = document.createElement("li");
-    sec.className = "section" + (openSections.has(cat) ? " open" : "");
-    const secId = "sec-" + cat.toLowerCase().replace(/[^a-z]+/g, "-");
-    sec.innerHTML = `
-      <button class="sec-head" type="button" aria-expanded="${openSections.has(cat)}" aria-controls="${secId}">
-        <span class="sec-icon">${SEC_ICONS[cat] || SEC_ICONS._}</span>
-        <span class="sec-text"><span class="sec-title">${esc(cat)}</span><span class="sec-count">${group.length} ${group.length === 1 ? "question" : "questions"}</span></span>${CHEV}
-      </button>
-      <ul class="rows" id="${secId}"></ul>`;
-    sec.querySelector(".sec-head").addEventListener("click", () => {
-      openSections.has(cat) ? openSections.delete(cat) : openSections.add(cat);
-      renderList();
-    });
-    const rows = sec.querySelector(".rows");
+    const um = document.createElement("li");
+    um.className = "umbrella";
+    um.innerHTML = `<h2 class="umbrella-title">${esc(g)} FAQ</h2>`;
+    rendered++;
 
-    group.forEach(i => {
-      const li = document.createElement("li");
-      const isOpen = openItems.has(i.id);
-      li.className = "row" + (isOpen ? " open" : ""); li.id = i.id;
-      li.innerHTML = `
-        <button class="q" type="button" aria-expanded="${isOpen}" aria-controls="a-${i.id}">
-          <span class="q-text">${highlightHTML(esc(i.q), words)}${i.draft ? '<span class="draft">Draft</span>' : ""}</span>
-          ${CHEV}
+    if (!gItems.length) {
+      um.insertAdjacentHTML("beforeend", `<div class="umbrella-empty">No ${esc(g)} questions yet.</div>`);
+      list.append(um);
+      return;
+    }
+
+    const secList = document.createElement("ul");
+    secList.className = "sections";
+    const cats = [...SECTION_ORDER.filter(c => gItems.some(i => i.category === c)),
+                  ...new Set(gItems.map(i => i.category).filter(c => !SECTION_ORDER.includes(c)))];
+
+    cats.forEach(cat => {
+      const group = gItems.filter(i => i.category === cat);
+      const key = g + "::" + cat;
+      const isOpenSec = openSections.has(key);
+      const sec = document.createElement("li");
+      sec.className = "section" + (isOpenSec ? " open" : "");
+      const secId = "sec-" + (g + "-" + cat).toLowerCase().replace(/[^a-z]+/g, "-");
+      sec.innerHTML = `
+        <button class="sec-head" type="button" aria-expanded="${isOpenSec}" aria-controls="${secId}">
+          <span class="sec-icon">${SEC_ICONS[cat] || SEC_ICONS._}</span>
+          <span class="sec-text"><span class="sec-title">${esc(cat)}</span><span class="sec-count">${group.length} ${group.length === 1 ? "question" : "questions"}</span></span>${CHEV}
         </button>
-        <div class="a" id="a-${i.id}" role="region">
-          <div class="a-body">
-            ${highlightHTML(i.a, words)}
-            <div class="a-foot">
-              <span><b>Role:</b> ${esc(i.roles.join(", "))}</span>
-              ${i.source ? `<span>Source: ${esc(i.source)}</span>` : ""}
-              <button class="copy" type="button">Copy link to question</button>
+        <ul class="rows" id="${secId}"></ul>`;
+      sec.querySelector(".sec-head").addEventListener("click", () => {
+        openSections.has(key) ? openSections.delete(key) : openSections.add(key);
+        renderList();
+      });
+      const rows = sec.querySelector(".rows");
+
+      group.forEach(i => {
+        const li = document.createElement("li");
+        const isOpen = openItems.has(i.id);
+        li.className = "row" + (isOpen ? " open" : ""); li.id = i.id;
+        li.innerHTML = `
+          <button class="q" type="button" aria-expanded="${isOpen}" aria-controls="a-${i.id}">
+            <span class="q-text">${highlightHTML(esc(i.q), words)}${i.draft ? '<span class="draft">Draft</span>' : ""}</span>
+            ${CHEV}
+          </button>
+          <div class="a" id="a-${i.id}" role="region">
+            <div class="a-body">
+              ${highlightHTML(i.a, words)}
+              <div class="a-foot">
+                <span><b>Role:</b> ${esc(i.roles.join(", "))}</span>
+                ${i.source ? `<span>Source: ${esc(i.source)}</span>` : ""}
+                <button class="copy" type="button">${SHARE_ICON}<span>Share Question</span></button>
+              </div>
             </div>
-          </div>
-        </div>`;
-      li.querySelector(".q").addEventListener("click", e => {
-        const nowOpen = li.classList.toggle("open");
-        nowOpen ? openItems.add(i.id) : openItems.delete(i.id);
-        e.currentTarget.setAttribute("aria-expanded", nowOpen);
+          </div>`;
+        li.querySelector(".q").addEventListener("click", e => {
+          const nowOpen = li.classList.toggle("open");
+          nowOpen ? openItems.add(i.id) : openItems.delete(i.id);
+          e.currentTarget.setAttribute("aria-expanded", nowOpen);
+        });
+        li.querySelector(".copy").addEventListener("click", e => {
+          const url = location.href.split("#")[0] + "#" + i.id;
+          const btn = e.currentTarget, label = btn.querySelector("span");
+          const done = () => {
+            label.textContent = "Link copied"; btn.classList.add("done");
+            setTimeout(() => { label.textContent = "Share Question"; btn.classList.remove("done"); }, 1600);
+          };
+          if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+          else prompt("Copy this link:", url);
+        });
+        rows.append(li);
       });
-      li.querySelector(".copy").addEventListener("click", e => {
-        const url = location.href.split("#")[0] + "#" + i.id;
-        const btn = e.currentTarget;
-        const done = () => { btn.textContent = "Link copied"; setTimeout(() => btn.textContent = "Copy link to question", 1600); };
-        if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
-        else prompt("Copy this link:", url);
-      });
-      rows.append(li);
+      secList.append(sec);
     });
-    list.append(sec);
+    um.append(secList);
+    list.append(um);
   });
+
+  if (!rendered) {
+    list.innerHTML = `<li class="empty"><strong>No questions match${state.query ? ` “${esc(state.query)}”` : ""}.</strong>Try fewer words, or reset the filters to search everything.</li>`;
+  }
 }
 
-function render() { renderList(); }
+function render() { renderFilters(); renderList(); }
 
 let t;
 $("#q").addEventListener("input", e => {
@@ -540,12 +587,12 @@ $("#q").addEventListener("input", e => {
 $("#clear").addEventListener("click", () => { $("#q").value = ""; state.query = ""; $("#clear").classList.remove("show"); $("#q").focus(); render(); });
 $("#reset").addEventListener("click", () => {
   $("#q").value = ""; $("#clear").classList.remove("show");
-  state.query = ""; state.roles.clear(); render();
+  state.query = ""; state.roles.clear(); state.groups = new Set(); render();
 });
 
 const linked = FAQ.find(i => "#" + i.id === location.hash);
 render();
-if (linked) { openSections.add(linked.category); openItems.add(linked.id); renderList(); }
+if (linked) { openSections.add(groupOf(linked) + "::" + linked.category); openItems.add(linked.id); renderList(); }
 if (location.hash) {
   const el = document.getElementById(location.hash.slice(1));
   if (el) el.scrollIntoView({ block: "center" });
