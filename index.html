@@ -391,10 +391,18 @@ const FAQ = [
     keywords: "snow weather closed closure storm power outage", source: "Handbook §8.1" },
 
   // ================= ECW =================
+  { id: "ecw-my-providers", group: "ECW", category: "General", roles: ["All Staff"],
+    q: "Add or remove providers from ‘My Providers’ list",
+    a: "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_add_missing_providers_to_My_Providers_list__quVZHqOrTByFLwxy4NNfRQ\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+    keywords: "ecw eclinicalworks my providers list add remove missing provider resource schedule view scribe guide", source: "" },
   { id: "ecw-assign-note", group: "ECW", category: "Progress Notes", roles: ["Provider"],
-    q: "How do I lock or assign a progress note?",
+    q: "Lock or assign a progress note",
     a: "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/Assign_Note_To_Supervising_Provider__4e-7HmgQQEuahyDFggMhwA\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
     keywords: "ecw eclinicalworks progress note lock sign assign supervising provider cosign co-sign scribe guide", source: "" },
+  { id: "ecw-clear-note", group: "ECW", category: "Progress Notes", roles: ["Provider"],
+    q: "Erase, clear, or restart a progress note",
+    a: "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_Clear_or_Restart_a_Progress_Note__3g1b15nwSDG-B--HorGLaw\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+    keywords: "ecw eclinicalworks progress note erase clear restart reset start over delete wipe blank scribe guide", source: "" },
 
 ];
 
@@ -464,11 +472,12 @@ const SEC_ICONS = (() => {
     "Office & Conduct": w('<path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M2 21h20M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/>'),
     "RX": w('<rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="M9.5 9.5l5 5"/>'),
     "Scheduling": w('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+    "General": w('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'),
     "Progress Notes": w('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>'),
     _: w('<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/>')
   };
 })();
-const SECTION_ORDER = ["Time Off & Attendance", "Pay & Benefits", "Leave", "IT & Accounts", "HIPAA & Compliance", "Patient Safety & Incidents", "Office & Conduct", "RX", "Scheduling"];
+const SECTION_ORDER = ["General", "Time Off & Attendance", "Pay & Benefits", "Leave", "IT & Accounts", "HIPAA & Compliance", "Patient Safety & Incidents", "Office & Conduct", "RX", "Scheduling"];
 const openSections = new Set();
 const openItems = new Set();
 let lastSig = null;
