@@ -1,0 +1,1342 @@
+{
+  "updated": "2026-10-22",
+  "entries": [
+    {
+      "id": "pto-request",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff",
+        "Provider"
+      ],
+      "question": "How do I request PTO, and how far in advance?",
+      "answer": "<p>Submit all PTO requests through your <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> for approval, as early as you can.</p><ul><li><strong>Staff:</strong> at least 2 weeks in advance. If your department's schedule is posted monthly (reception, TMS, and others), request it before the schedule comes out.</li><li><strong>Providers:</strong> at least 30 days in advance, and there can't already be more than 4 patients on your schedule for that day.</li></ul><p><strong>Please don't make any travel arrangements until your PTO is approved.</strong></p><img class=\"a-img\" src=\"images/pto-request.png\" alt=\"Paychex: Step 1, click View All on the Time Off card. Step 2, click Request Time Off.\">",
+      "keywords": [
+        "vacation",
+        "day",
+        "off",
+        "time",
+        "off",
+        "request",
+        "advance",
+        "notice",
+        "paychex",
+        "provider",
+        "30",
+        "days",
+        "patients",
+        "booked",
+        "schedule"
+      ],
+      "source": "Handbook §4.1, §4.7, §7.6",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "pto-start",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "When can I start using PTO and sick time?",
+      "answer": "<p>After your 90-day introductory period. Sick leave starts accruing on your first day, but you can't use it until the 90 days are up.</p>",
+      "keywords": [
+        "new",
+        "hire",
+        "probation",
+        "introductory",
+        "period",
+        "90",
+        "days",
+        "eligible"
+      ],
+      "source": "Handbook §3.7, §7.6, §7.7",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "call-out",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How do I call out sick or let my manager know I'll be late?",
+      "answer": "<p>Call the Evolve Psychiatry Call-Out and Emergency Line at <strong>631-479-3406</strong> at least 2 hours before your scheduled start time. If no one answers, leave a voicemail. Texts, Slack messages, and emails don't count as notice.</p><p>For any last-minute absence, you also need to complete an <a href=\"https://form.jotform.com/241064635802048\" target=\"_blank\" rel=\"noopener\">Absence Form</a>. Let them know how long you expect to be out and when you'll be back.</p>",
+      "keywords": [
+        "sick",
+        "late",
+        "callout",
+        "call",
+        "out",
+        "absent",
+        "notify",
+        "text",
+        "slack",
+        "email",
+        "tardy",
+        "phone",
+        "number",
+        "emergency",
+        "line",
+        "voicemail",
+        "absence",
+        "form"
+      ],
+      "source": "Handbook §4.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "high-impact",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What are high-impact days?",
+      "answer": "<p>Mondays and the day after a holiday. PTO for these days must be requested in advance, and call-outs aren't accepted. Your manager may ask you to come in unless it's a real emergency, and you'll need documentation of that emergency before returning.</p>",
+      "keywords": [
+        "monday",
+        "holiday",
+        "call",
+        "out",
+        "callout"
+      ],
+      "source": "Handbook §4.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "write-ups",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How many call-outs or late arrivals lead to a write-up?",
+      "answer": "<ul><li>3 call-outs in a 6-month period: the third triggers an automatic write-up.</li><li>3 late arrivals in a 3-month period: the third triggers an automatic write-up.</li><li>3 consecutive sick days: you'll need a doctor's note.</li></ul>",
+      "keywords": [
+        "writeup",
+        "discipline",
+        "late",
+        "tardy",
+        "callout",
+        "doctors",
+        "note",
+        "absence"
+      ],
+      "source": "Handbook §4.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "arrive-early",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How early should I arrive for my shift?",
+      "answer": "<p>5 to 10 minutes before your scheduled start, ready to work.</p>",
+      "keywords": [
+        "arrive",
+        "shift",
+        "start",
+        "on",
+        "time",
+        "punctual"
+      ],
+      "source": "Handbook §4.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "schedule-posted",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "When is my schedule posted, and where can I see it?",
+      "answer": "<p>Reception, TMS, and other department schedules are posted once a month, covering the whole month. You can view the schedule anytime on the Evolve Office website or <a href=\"https://docs.google.com/spreadsheets/d/11HihFUnBQyIgwfn8pCv-dmP78lZeOlWWOhF5GuPL3Es/edit?usp=sharing\" target=\"_blank\" rel=\"noopener\">open the schedule here</a>. Get your PTO and sick requests in before it's posted.</p><p>Provider, billing, administration, and NPC schedules are set before your start date and only change if administration directs it.</p>",
+      "keywords": [
+        "schedule",
+        "monthly",
+        "shifts",
+        "posted",
+        "where",
+        "view",
+        "website"
+      ],
+      "source": "Handbook §4.7",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "short-staffed",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Why was my PTO request limited during a busy period?",
+      "answer": "<p>During short-staffing periods, Administration may approve PTO for only one staff member per location at a time, first come, first served.</p>",
+      "keywords": [
+        "denied",
+        "pto",
+        "short",
+        "staffed",
+        "busy",
+        "one",
+        "per",
+        "location"
+      ],
+      "source": "Handbook §4.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "pto-carryover",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I carry unused PTO into next year?",
+      "answer": "<p>You can carry over half of your unused PTO. Alternatively, half of your unused PTO may be paid out at year end instead of carried over.</p>",
+      "keywords": [
+        "rollover",
+        "roll",
+        "over",
+        "unused",
+        "payout",
+        "year",
+        "end"
+      ],
+      "source": "Handbook §7.6",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "holidays",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What are the paid holidays?",
+      "answer": "<p>New Year's Day, Memorial Day, July 4th, Labor Day, Thanksgiving, Christmas Day, plus one floating holiday.</p><p>If you work four 10-hour days, you're paid 10 hours when a holiday lands on a normal workday. If it lands on your day off, ask your manager how it applies to you.</p>",
+      "keywords": [
+        "holiday",
+        "christmas",
+        "thanksgiving",
+        "july",
+        "4",
+        "new",
+        "years",
+        "labor",
+        "memorial"
+      ],
+      "source": "Handbook §7.5",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "floating-holiday",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How does the floating holiday work?",
+      "answer": "<p>You get one paid floating holiday a year to use on a day of your choosing, such as Christmas Eve, New Year's Eve, Juneteenth, MLK Day, or Columbus Day. Give 2 weeks' notice before taking it.</p>",
+      "keywords": [
+        "floating",
+        "holiday",
+        "juneteenth",
+        "christmas",
+        "eve",
+        "mlk"
+      ],
+      "source": "Handbook §7.5",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "leaving-pto",
+      "group": "Policies",
+      "category": "Time Off & Attendance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What happens to my PTO and sick time if I leave?",
+      "answer": "<p>Unused PTO and sick time aren't paid out when you resign or are terminated. You also can't use PTO or sick time during your last 2 weeks.</p>",
+      "keywords": [
+        "resign",
+        "quit",
+        "two",
+        "weeks",
+        "notice",
+        "payout",
+        "termination"
+      ],
+      "source": "Handbook §5.7, §7.6, §7.7",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "payday",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "When is payday?",
+      "answer": "<p>Every other Thursday. If payday falls on a holiday, you're paid the workday before. If you're not sure when the next payday is, check the front page of the Evolve Office website.</p>",
+      "keywords": [
+        "paycheck",
+        "pay",
+        "date",
+        "biweekly",
+        "direct",
+        "deposit"
+      ],
+      "source": "Handbook, NY & NC Pay Period",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "clock-in",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Who has to clock in, and how?",
+      "answer": "<p>All employees must clock in and out for every shift, except salaried employees and independent contractors. Clock in and out using your <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> on your assigned office computer.</p><p>Clock in no more than 5 minutes before you start working and out no more than 5 minutes after you stop. Record your meal break too. Any time you actually work is recorded and paid, including work outside those 5-minute windows or during a meal break.</p><p>Never clock in or out for another employee; doing so leads to termination.</p>",
+      "keywords": [
+        "paychex",
+        "timeclock",
+        "punch",
+        "time",
+        "card",
+        "clock",
+        "in",
+        "out",
+        "hours",
+        "salary",
+        "salaried",
+        "hourly",
+        "contractor",
+        "exempt",
+        "nonexempt"
+      ],
+      "source": "Handbook §4.8",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "overtime",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I work overtime?",
+      "answer": "<p>Only with written approval from your manager in advance. In New York offices, no more than 2 hours of overtime per pay period is approved unless there's an extenuating circumstance. The practice may also require overtime at times, with as much notice as possible.</p>",
+      "keywords": [
+        "overtime",
+        "ot",
+        "extra",
+        "hours",
+        "approval"
+      ],
+      "source": "Handbook, Overtime",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "lunch",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Is my lunch break paid?",
+      "answer": "<p>In New York offices, full-time employees get a paid 30-minute lunch. Clock out and back in for it, and tell your manager if you can't take it.</p>",
+      "keywords": [
+        "lunch",
+        "meal",
+        "break",
+        "paid",
+        "30",
+        "minutes"
+      ],
+      "source": "Handbook, NY Meal Periods",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "mileage",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Do I get reimbursed for driving to another office?",
+      "answer": "<p>Yes, at $0.74 per mile when you're asked to cover at another location. Mileage to required in-person staff meetings isn't reimbursed.</p>",
+      "keywords": [
+        "mileage",
+        "gas",
+        "travel",
+        "reimbursement",
+        "coverage"
+      ],
+      "source": "Handbook §4.2",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "401k",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "When can I join the 401(k)?",
+      "answer": "<p>You can start contributing to the 401(k) after 3 months of employment. Once you reach 1 year, Evolve matches your contributions up to 4%. To qualify for the match, you must contribute at least 5%.</p><p>Sign up and manage your contributions in your <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> under the Retirement section. You can also view the Summary Plan Description there.</p>",
+      "keywords": [
+        "401k",
+        "retirement",
+        "match",
+        "contribute",
+        "4%",
+        "5%",
+        "paychex",
+        "enroll",
+        "sign",
+        "up",
+        "spd",
+        "summary",
+        "plan"
+      ],
+      "source": "Handbook §7.2",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "health",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "When does health insurance start?",
+      "answer": "<p>After the plan's waiting period, which follows your 90-day introductory period. Ask the Practice Manager for the Summary Plan Description.</p>",
+      "keywords": [
+        "health",
+        "insurance",
+        "medical",
+        "benefits",
+        "coverage"
+      ],
+      "source": "Handbook §3.7, §7.4",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "personal-info",
+      "group": "Policies",
+      "category": "Pay & Benefits",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How do I update my address or tax withholding?",
+      "answer": "<p>You can do so in your <a href=\"https://login.flex.paychex.com/login_static/UsernameOnly.html?lang=en&downtime=false\" target=\"_blank\" rel=\"noopener\">Paychex account</a> under <strong>My Pay &gt; Taxes</strong>.</p>",
+      "keywords": [
+        "address",
+        "phone",
+        "w4",
+        "w-4",
+        "tax",
+        "withholding",
+        "change"
+      ],
+      "source": "Handbook §6.7",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "sick-leave",
+      "group": "Policies",
+      "category": "Leave",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How does sick leave work?",
+      "answer": "<ul><li>You earn 1 hour for every 30 hours worked, starting day one.</li><li>You can use it after 90 days, up to 40 hours per calendar year, in 1-hour minimums.</li><li>It covers your own or a family member's illness, care, or preventive care, and safe leave situations.</li><li>Unused hours carry over, but the 40-hour yearly use limit still applies.</li></ul>",
+      "keywords": [
+        "sick",
+        "time",
+        "accrual",
+        "family",
+        "member",
+        "doctor"
+      ],
+      "source": "Handbook §7.7",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "jury-duty",
+      "group": "Policies",
+      "category": "Leave",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Am I paid for jury duty?",
+      "answer": "<p>Evolve pays $72 per day for the first 3 days. Tell your manager as soon as you're summoned, and you may be asked for proof of service.</p>",
+      "keywords": [
+        "jury",
+        "summons",
+        "court"
+      ],
+      "source": "Handbook §7.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "pfl",
+      "group": "Policies",
+      "category": "Leave",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What is New York Paid Family Leave?",
+      "answer": "<p>For New York staff: up to 12 weeks of job-protected leave at 67% of your weekly pay (capped) to bond with a new child, care for a family member with a serious health condition, or help with a family member's military deployment.</p><p>Full-time employees are eligible after 26 consecutive weeks; part-time after 175 days worked.</p>",
+      "keywords": [
+        "pfl",
+        "paid",
+        "family",
+        "leave",
+        "baby",
+        "bonding",
+        "maternity",
+        "paternity"
+      ],
+      "source": "Handbook, NY Paid Family Leave",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "fmla",
+      "group": "Policies",
+      "category": "Leave",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Am I eligible for FMLA?",
+      "answer": "<p>If you've worked here at least 12 months and at least 1,250 hours in the last 12 months. FMLA is unpaid, job-protected leave of up to 12 weeks, and you can use PTO or sick time during it.</p><p>Give 30 days' notice when you can. Get leave forms from the Practice Manager.</p>",
+      "keywords": [
+        "fmla",
+        "medical",
+        "leave",
+        "family",
+        "unpaid"
+      ],
+      "source": "Handbook §7.3",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "personal-wifi",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I connect my phone or laptop to the office Wi-Fi?",
+      "answer": "<p>No. Personal devices can't connect to the practice network or to practice equipment like computers and printers.</p>",
+      "keywords": [
+        "wifi",
+        "wi-fi",
+        "internet",
+        "network",
+        "phone",
+        "personal",
+        "device",
+        "printer"
+      ],
+      "source": "Handbook §6.6",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "shared-login",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can a coworker use my login if I say it's okay?",
+      "answer": "<p>No. Nobody may log into another employee's computer, email, EMR, Paychex, or any other account, even with permission. Don't share passwords. Using someone else's EMR login can also be a HIPAA violation.</p>",
+      "keywords": [
+        "password",
+        "login",
+        "share",
+        "account",
+        "credentials",
+        "emr"
+      ],
+      "source": "Handbook §6.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "imessage",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I use iMessage or FaceTime on my office Mac?",
+      "answer": "<p>No. iMessage and FaceTime aren't permitted on practice computers.</p>",
+      "keywords": [
+        "imessage",
+        "facetime",
+        "mac",
+        "apple",
+        "messages"
+      ],
+      "source": "Handbook §6.6",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "remote-access",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Why are Splashtop and Rippling on my computer?",
+      "answer": "<p>They let IT and authorized support providers maintain, update, troubleshoot, and secure practice computers, including remotely and without prior notice. Practice devices and accounts may be monitored, so there's no expectation of privacy on them.</p>",
+      "keywords": [
+        "splashtop",
+        "rippling",
+        "remote",
+        "access",
+        "monitoring",
+        "privacy"
+      ],
+      "source": "Handbook §6.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "software",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How do I get new software installed?",
+      "answer": "<p>Get your manager's approval first. All software is purchased through IT.</p>",
+      "keywords": [
+        "install",
+        "app",
+        "program",
+        "software",
+        "purchase",
+        "license"
+      ],
+      "source": "Handbook §6.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "vpn",
+      "group": "Policies",
+      "category": "IT & Accounts",
+      "roles": [
+        "Remote"
+      ],
+      "question": "Do I need to use a VPN?",
+      "answer": "<p>Yes, if you're a full-time remote worker.</p>",
+      "keywords": [
+        "vpn",
+        "remote",
+        "home",
+        "work",
+        "from",
+        "home"
+      ],
+      "source": "Handbook, HIPAA Remote Work",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "telehealth-setup",
+      "group": "Policies",
+      "category": "HIPAA & Compliance",
+      "roles": [
+        "Remote",
+        "Provider",
+        "Therapist"
+      ],
+      "question": "What do I need for telehealth sessions from home?",
+      "answer": "<ul><li>A private, enclosed room</li><li>Headphones during patient encounters</li><li>A screen nobody else can see</li><li>Practice-approved, encrypted devices and platforms only</li><li>No patient information stored on personal devices unless authorized</li></ul>",
+      "keywords": [
+        "telehealth",
+        "remote",
+        "home",
+        "video",
+        "visit",
+        "headphones",
+        "private",
+        "room"
+      ],
+      "source": "Handbook, HIPAA Remote Work",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "own-chart",
+      "group": "Policies",
+      "category": "HIPAA & Compliance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I look up my own or a family member's chart?",
+      "answer": "<p>No. Only access patient information you need for your job. That rules out your own record, family members' records, and anyone else's without a business reason.</p>",
+      "keywords": [
+        "chart",
+        "record",
+        "emr",
+        "look",
+        "up",
+        "family",
+        "minimum",
+        "necessary"
+      ],
+      "source": "Handbook, HIPAA",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "employee-patient",
+      "group": "Policies",
+      "category": "HIPAA & Compliance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I be seen as a patient at Evolve?",
+      "answer": "<p>Generally no. You may choose medication management or TMS at Evolve, but charts can't be locked in our EMR, so other employees may be able to see yours. Talk therapy and Spravato aren't available to current employees.</p>",
+      "keywords": [
+        "employee",
+        "patient",
+        "treatment",
+        "chart",
+        "privacy"
+      ],
+      "source": "Handbook, HIPAA",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "breach",
+      "group": "Policies",
+      "category": "HIPAA & Compliance",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What do I do if I lose a device or think patient info was exposed?",
+      "answer": "<p>Report it to the Practice Manager right away. This covers lost or stolen devices, suspected breaches, and unauthorized access.</p>",
+      "keywords": [
+        "lost",
+        "stolen",
+        "phone",
+        "laptop",
+        "breach",
+        "privacy",
+        "report",
+        "hipaa"
+      ],
+      "source": "Handbook, HIPAA",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "report-now",
+      "group": "Policies",
+      "category": "Patient Safety & Incidents",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What do I need to report to management right away?",
+      "answer": "<ul><li>Patient complaints about safety or quality of care</li><li>Adverse events</li><li>Medication errors</li><li>HIPAA concerns</li><li>Regulatory inquiries</li></ul><p>Don't try to resolve a serious complaint on your own.</p>",
+      "keywords": [
+        "complaint",
+        "incident",
+        "error",
+        "adverse",
+        "event",
+        "report"
+      ],
+      "source": "Handbook, Incident Reporting",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "threats",
+      "group": "Policies",
+      "category": "Patient Safety & Incidents",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "A patient or visitor is threatening or escalating. What do I do?",
+      "answer": "<p>Report it immediately, follow de-escalation and emergency procedures, and use panic or emergency protocols when needed. You won't be disciplined for reporting a safety concern in good faith.</p>",
+      "keywords": [
+        "threat",
+        "violence",
+        "aggressive",
+        "escalation",
+        "panic",
+        "emergency"
+      ],
+      "source": "Handbook §8.3, Workplace Violence",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "boundaries",
+      "group": "Policies",
+      "category": "Patient Safety & Incidents",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I accept a gift from a patient or follow them on social media?",
+      "answer": "<p>No significant gifts, no social media interaction with current patients, and no personal relationships with current patients.</p>",
+      "keywords": [
+        "gift",
+        "social",
+        "media",
+        "instagram",
+        "facebook",
+        "boundaries",
+        "patient"
+      ],
+      "source": "Handbook, Professional Boundaries",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "dress-code",
+      "group": "Policies",
+      "category": "Office & Conduct",
+      "roles": [
+        "Reception",
+        "TMS/Spravato"
+      ],
+      "question": "What's the dress code for reception and TMS?",
+      "answer": "<p>Black scrubs with closed-toe shoes. Black leggings, hoodies, and clothing with holes aren't allowed. Blue jeans are fine on casual Fridays.</p>",
+      "keywords": [
+        "dress",
+        "code",
+        "scrubs",
+        "uniform",
+        "clothes",
+        "jeans",
+        "casual",
+        "friday"
+      ],
+      "source": "Handbook §6.5",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "phones",
+      "group": "Policies",
+      "category": "Office & Conduct",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Can I use my personal phone at work?",
+      "answer": "<p>Only on breaks and lunch, or for something urgent. You can use the office phone for necessary personal calls. Excessive personal phone use leads to a write-up.</p>",
+      "keywords": [
+        "cell",
+        "phone",
+        "mobile",
+        "personal",
+        "break"
+      ],
+      "source": "Handbook §6.6",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "closures",
+      "group": "Policies",
+      "category": "Office & Conduct",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "How will I find out if the office is closed for weather?",
+      "answer": "<p>By Slack and email. Make sure at least one of them is on your phone.</p>",
+      "keywords": [
+        "snow",
+        "weather",
+        "closed",
+        "closure",
+        "storm",
+        "power",
+        "outage"
+      ],
+      "source": "Handbook §8.1",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-my-providers",
+      "group": "ECW",
+      "category": "General",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Add or remove providers from ‘My Providers’ list",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_add_missing_providers_to_My_Providers_list__quVZHqOrTByFLwxy4NNfRQ\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "my",
+        "providers",
+        "list",
+        "add",
+        "remove",
+        "missing",
+        "provider",
+        "resource",
+        "schedule",
+        "view",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-what-is-te",
+      "group": "ECW",
+      "category": "General",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "What is a telephone encounter?",
+      "answer": "<p>A Telephone Encounter (T) is a way to document and manage patient-related communications or requests in eClinicalWorks. It's essentially a task or message attached to a patient's chart.</p><p>Common examples include:</p><ul><li><strong>Medication refills:</strong> a patient requests a prescription refill.</li><li><strong>Patient questions:</strong> a patient asks about their medication or treatment.</li><li><strong>Provider requests:</strong> staff need a provider to review or address something.</li><li><strong>Follow-ups:</strong> documenting a phone conversation or an action that's needed.</li></ul><p><strong>Important:</strong> a Telephone Encounter doesn't necessarily mean a phone call happened. It's also used to communicate and track patient-related tasks between staff and providers.</p><p>Once the request is addressed, the T can be completed and closed.</p><p>You can find telephone encounters under the <strong>T</strong> in the top bar of eCW:</p><img class=\"a-img a-img-sm\" src=\"images/ecw-what-is-te.png\" alt=\"eCW top bar with the T (telephone encounters) counter circled\">",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "telephone",
+        "encounter",
+        "t",
+        "te",
+        "phone",
+        "message",
+        "task",
+        "refill",
+        "patient",
+        "question",
+        "provider",
+        "request",
+        "follow",
+        "up",
+        "chart",
+        "what",
+        "is"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-send-te",
+      "group": "ECW",
+      "category": "General",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Send a telephone encounter",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/Evolve_Psychiatry__How_To_Create_A_Telephone_Encounter__rxG8uAJgTaW9GsJARUUqgA\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "telephone",
+        "encounter",
+        "te",
+        "send",
+        "create",
+        "new",
+        "make",
+        "message",
+        "task",
+        "provider",
+        "staff",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-send-fax",
+      "group": "ECW",
+      "category": "General",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Send a fax",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_To_Send_a_Fax_ECW__zC3yeKJ1TcqT3cNpTygpbA\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "fax",
+        "send",
+        "outgoing",
+        "efax",
+        "records",
+        "document",
+        "pharmacy",
+        "referral",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "clear-cache",
+      "group": "General",
+      "category": "Troubleshooting",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "Delete cache & cookies in Chrome",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_To_Delete_Cache_and_Cookies_Google_Chrome__8STD4CA7RTmrKEJlyYDl6A\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "chrome",
+        "google",
+        "browser",
+        "cache",
+        "cookies",
+        "clear",
+        "delete",
+        "history",
+        "slow",
+        "not",
+        "loading",
+        "frozen",
+        "stuck",
+        "ecw",
+        "eclinicalworks",
+        "troubleshoot",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-assign-note",
+      "group": "ECW",
+      "category": "Progress Notes",
+      "roles": [
+        "Provider"
+      ],
+      "question": "Lock or assign a progress note",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/Assign_Note_To_Supervising_Provider__4e-7HmgQQEuahyDFggMhwA\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "progress",
+        "note",
+        "lock",
+        "sign",
+        "assign",
+        "supervising",
+        "provider",
+        "cosign",
+        "co-sign",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff",
+      "providerOnly": true
+    },
+    {
+      "id": "ecw-clear-note",
+      "group": "ECW",
+      "category": "Progress Notes",
+      "roles": [
+        "Provider"
+      ],
+      "question": "Erase, clear, or restart a progress note",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_Clear_or_Restart_a_Progress_Note__3g1b15nwSDG-B--HorGLaw\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "progress",
+        "note",
+        "erase",
+        "clear",
+        "restart",
+        "reset",
+        "start",
+        "over",
+        "delete",
+        "wipe",
+        "blank",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff",
+      "providerOnly": true
+    },
+    {
+      "id": "ecw-carry-forward",
+      "group": "ECW",
+      "category": "Progress Notes",
+      "roles": [
+        "Provider"
+      ],
+      "question": "Bring forward a previous progress note",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_Carry_a_Previous_Progress_Note_Forward__02RkqnUESuWZ3BsJGLkL-Q\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "progress",
+        "note",
+        "carry",
+        "forward",
+        "bring",
+        "forward",
+        "copy",
+        "previous",
+        "last",
+        "prior",
+        "visit",
+        "note",
+        "pull",
+        "import",
+        "reuse",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff",
+      "providerOnly": true
+    },
+    {
+      "id": "ecw-open-notes-report",
+      "group": "ECW",
+      "category": "Progress Notes",
+      "roles": [
+        "Provider"
+      ],
+      "question": "View unlocked or open progress notes report",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/View_UnlockedOpen_Progress_Notes_ECW__U7a-Yo_kTUmgjmT3UpP7tg\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "progress",
+        "notes",
+        "unlocked",
+        "open",
+        "unsigned",
+        "incomplete",
+        "pending",
+        "report",
+        "list",
+        "outstanding",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff",
+      "providerOnly": true
+    },
+    {
+      "id": "ecw-practice-code",
+      "group": "ECW",
+      "category": "Patient Portal",
+      "roles": [
+        "Reception"
+      ],
+      "question": "What is our practice code, and what is it used for?",
+      "answer": "<p>Our practice code is <strong>HAHBDD</strong>.</p><p>Patients enter this code in the Healow app to connect their account to Evolve Psychiatry. Once connected, they can access our patient portal.</p>",
+      "keywords": [
+        "practice",
+        "code",
+        "hahbdd",
+        "healow",
+        "app",
+        "patient",
+        "portal",
+        "connect",
+        "link",
+        "account"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-portal-setup",
+      "group": "ECW",
+      "category": "Patient Portal",
+      "roles": [
+        "Reception"
+      ],
+      "question": "How do patients download and set up the patient portal?",
+      "answer": "<ul><li>Download the <strong>Healow</strong> app from the App Store or Google Play.</li><li>Enter our practice code: <strong>HAHBDD</strong>.</li><li>Enter their name and date of birth to connect to Evolve Psychiatry.</li></ul><p>Patients can find step-by-step instructions on our website: <a href=\"https://evolvepsychiatry.com/portal\" target=\"_blank\" rel=\"noopener\">evolvepsychiatry.com/portal</a></p>",
+      "keywords": [
+        "healow",
+        "app",
+        "download",
+        "install",
+        "set",
+        "up",
+        "setup",
+        "patient",
+        "portal",
+        "practice",
+        "code",
+        "hahbdd",
+        "name",
+        "date",
+        "of",
+        "birth",
+        "dob",
+        "website",
+        "instructions",
+        "sign",
+        "up",
+        "register"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-portal-password",
+      "group": "ECW",
+      "category": "Patient Portal",
+      "roles": [
+        "Reception"
+      ],
+      "question": "What should I do if a patient is having trouble getting into their portal account?",
+      "answer": "<p>Send them a password reset link by following the guide below. This sends the patient an email with instructions on how to log in.</p><p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/Reset_Patient_Portal_Password__7iB5JKgyTXOv5mKSAmtZ6g\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "patient",
+        "portal",
+        "healow",
+        "password",
+        "reset",
+        "link",
+        "email",
+        "forgot",
+        "locked",
+        "out",
+        "cant",
+        "log",
+        "in",
+        "login",
+        "trouble",
+        "access",
+        "unlock",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-view-cancel-rx",
+      "group": "ECW",
+      "category": "RX",
+      "roles": [
+        "All Staff"
+      ],
+      "question": "View or cancel sent meds",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_To_View_or_Cancel_Patient_Prescriptions__LjdcxU-nR3iFUdikseZVzQ\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "rx",
+        "prescription",
+        "erx",
+        "e-prescribe",
+        "medication",
+        "sent",
+        "cancel",
+        "void",
+        "stop",
+        "view",
+        "history",
+        "pharmacy",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff"
+    },
+    {
+      "id": "ecw-rx-tele-encounter",
+      "group": "ECW",
+      "category": "RX",
+      "roles": [
+        "Provider"
+      ],
+      "question": "Send meds via telephone encounter",
+      "answer": "<p><a class=\"guide-btn\" href=\"https://scribehow.com/o/duSl3Y2vQmOHv3Xca6TcFA/viewer/How_to_send_RX_via_telephone_encounter__2HZzq5ouTwa328xRMpefUg\" target=\"_blank\" rel=\"noopener\">Click here for guide</a></p>",
+      "keywords": [
+        "ecw",
+        "eclinicalworks",
+        "rx",
+        "prescription",
+        "meds",
+        "medication",
+        "send",
+        "erx",
+        "e-prescribe",
+        "telephone",
+        "encounter",
+        "tele",
+        "phone",
+        "refill",
+        "pharmacy",
+        "scribe",
+        "guide"
+      ],
+      "source": "",
+      "route_to": "",
+      "visibility": "staff",
+      "providerOnly": true
+    }
+  ]
+}
